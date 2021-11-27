@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Rede social</title>
+</head>
+<body>
+  <header>
+      <h1 class="h1"> PlusNotes</h1>
+      <h2 class="h2">Amigos</h2>
+  </header>
+      
+ 
+  <main class="main">
+      <!-----Formulário de postagem-->
+    <div class="colunaesquerda">
+    <div class="newPost">
+        <div class="infoUser">
+            {% for usuario in rows %}
+            <div class="imgUser"></div>
+             <strong>{{ usuario.nome_user }}</strong>
+            {% endfor %}  
+
+        </div>
+    
+    
+    <form action="postar" class="formPost" method="post">
+        <textarea  name="post"placeholder="O que está pensando?"></textarea>
+
+
+        <!-- <div class="iconsAndButton">
+            <div class="icons">
+                <button class="btnFileForm"><img src="./assets/img.svg" alt="Adicionar a imagem"></button>
+                <button class="btnFileForm"><img src="./assets/gif.svg" alt="Adicionar um gif"></button>
+                <button class="btnFileForm"><img src="./assets/video.svg" alt="Adicionar um video"></button>
+            </div> -->
+
+            <button type="submit" class="btnSubmitForm">Publicar</button>
+        </div>
+    </form>
+
+
+    </div>
+    <ul class="posts">
+         {% for posts in postsRevert %}
+        <li class="post">
+            <div class="infoUserPost">
+                <div class="imgUserPost"></div>
+
+                <div class="nameAndHour">
+                    <strong>{{ posts.nome_user}}</strong>
+                </div>
+            </div>
+        <p>{{ posts.post}}</p>
+    </li>
+    {% endfor %}  
+
+
+
+
+
+
+    <div class="colunadireita">
+        {% for usuarios in rows2 %}
+        <div class="user">
+            <div class="img"></div>
+            <div class="name">
+                <strong>{{ usuarios.nome_user }}</strong>
+            </div>
+        </div>
+    {% endfor %}  
+
+
+    </div>
+
+    
+
+  </main>
+   
+</body>
+</html>
